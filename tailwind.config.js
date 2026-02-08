@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import textShadow from 'tailwindcss-textshadow';
 export default {
     content: [
         "./index.html",
@@ -11,7 +12,17 @@ export default {
                 secondary: '#ffffff',
                 accent: '#FFC857',
             },
+            screens: {
+
+                'sm': '300px',
+                'md': '768px',
+                'lg': '1024px',
+
+            },
+
+
+
         },
     },
-    plugins: [],
+    plugins: [textShadow],
 }

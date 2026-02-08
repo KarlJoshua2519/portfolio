@@ -7,8 +7,17 @@
     margin: 0;
 }
 
+.playfair {
+    font-family: "Playfair Display", serif;
+}
+
+.roboto {
+    font-family: "Roboto", sans-serif;
+}
+
 body {
     background-color: #12111C;
+    overflow: hidden;
 }
 
 .typing {
@@ -16,22 +25,87 @@ body {
 }
 
 .blinking-cursor {
-    font-weight: 400;
-    font-size: 1.5em;
-    color: #FFC857;
+    display: inline-block;
+    margin-left: 2px;
+    width: 2px;
+    /* match your accent color */
     animation: blink 1s infinite;
 }
 
 @keyframes blink {
+    0%,
     50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
         opacity: 0;
     }
 }
 
 .boxshadow {
-    box-shadow: -1px 1px 3px 0px #888d94;
+    filter: drop-shadow(0 0 6px rgba(90, 90, 90, 0.6));
+    animation: glow 5s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 4px rgba(90, 90, 90, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 10px rgba(120, 120, 120, 0.7));
+    }
+    100% {
+        filter: drop-shadow(0 0 4px rgba(90, 90, 90, 0.3));
+    }
+}
+
+.boxshadow2 {
+    box-shadow: -10px -5px 20px -10px #747474;
 }
 
 .dropshadow {
-    filter: drop-shadow(-1px 1px 2px #353536);
+    filter: drop-shadow(-1px 1px 10px #353536);
+}
+
+@layer utilities {
+    .text-glow {
+        text-shadow: 0 0 15px rgba(150, 150, 150, 0.733);
+    }
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    opacity: 0;
+    animation: fadeAnimation 9s infinite;
+}
+
+.carousel-image:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.carousel-image:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.carousel-image:nth-child(3) {
+    animation-delay: 6s;
+}
+
+@keyframes fadeAnimation {
+    0%,
+    100% {
+        opacity: 0;
+    }
+    20%,
+    80% {
+        opacity: 1;
+    }
 }
